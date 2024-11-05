@@ -9,7 +9,6 @@ import { Provider } from 'react-redux'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-
     <BrowserRouter>
       <Provider store={store}>
         <NextUIProvider>

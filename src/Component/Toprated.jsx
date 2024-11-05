@@ -39,11 +39,15 @@ const Toprated = () => {
         setcurrentpage(page)
     }
 
+    const handlesinglemovie = (e) => {
+        route(`/singlemovie/${e.id}`)
+    }
+
     return (
         <div className='w-full bg-[#29292a] py-10'>
             <div className='w-[90%] m-auto text-white grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10'>
                 {paginationmovie && paginationmovie.map((e, i) => (
-                    <div key={i} className='border border-white rounded-2xl overflow-hidden'>
+                    <div key={i} className='border border-white rounded-2xl overflow-hidden' onClick={() => handlesinglemovie(e)}>
                         <div className='w-full h-48'>
                             <img src={`https://image.tmdb.org/t/p/w500${e.backdrop_path}`} alt="logo" className='w-full h-full' />
                         </div>
