@@ -12,12 +12,9 @@ const Home = () => {
     const fetchurl = `https://api.themoviedb.org/3/movie/popular?api_key=${Api_key}&language=en-US&page=1`
 
     const [getallmovie, setgetallmovie] = useState([]);
-    // console.log(getallmovie, "getallmovie");
-
     const [currentpage, setcurrentpage] = useState(1);
     
     const route = useNavigate()
-
     const dispatch = useDispatch();
 
     // const showreduxdata = useSelector((state) => state.movie.movie);
@@ -29,7 +26,7 @@ const Home = () => {
             // console.log(response.data.results, "check data");
             setgetallmovie(response.data.results)
             dispatch(adddata(response.data.results))
-            localStorage.setItem("homedata", JSON.stringify(response.data.results))
+            
         }
         getData()
     }, [dispatch])
@@ -52,7 +49,7 @@ const Home = () => {
                 {paginationmovie && paginationmovie.map((e, i) => (
                     <div key={i} className='border border-white rounded-2xl overflow-hidden' onClick={() => handlesinglemovie(e)}>
                         <div className='w-full h-48'>
-                            <img src={`https://image.tmdb.org/t/p/w500${e.backdrop_path}`} alt="logo" className='w-full h-full' />
+                            <img src={`https://image.tmdb.org/t/p/w500${e.backdrop_path}`} alt="Image not upload in database" className='w-full h-full' />
                         </div>
                         <div className='py-2 h-24 flex flex-col justify-start gap-1'>
                             <p className='text-center'>{e.title}</p>
